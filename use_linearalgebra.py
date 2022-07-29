@@ -61,10 +61,10 @@ figure, axes = plt.subplots(1)
 axes.plot(x, y)
 
 # Set limit values for the plot
+xmax = np.ceil(0.15 * (sig_c + radius))*10
 xmin = 0
-xmax = 1.5 * (sig_c + radius)
-ymin = np.min([-1.5 * radius, -0.5 * (sig_c + radius)])
-ymax = np.max([1.5 * radius, 0.5 * (sig_c + radius)])
+ymax = np.ceil(np.max([1.5 * radius, 0.5 * (sig_c + radius)])/10.)*10
+ymin = -ymax
 
 # Set aspect ratio as 1 to show the circle
 axes.set_aspect(1)
