@@ -113,10 +113,12 @@ plt.annotate(r'$\sigma_c = %0.1f$' % sig_c,
 # draw a box for the annotation
 mybox = {'facecolor': 'white', 'edgecolor': 'black'}
 
-# print RMSE in the plot
+# print max and min principal stresses in the plot
 plt.text(xmin + (xmax-xmin) * 0.95, ymin + (ymax-ymin) * 0.05,
-         r'$\sigma_{pmax}  = %0.2f, \sigma_{pmin}  = %0.2f$' %(sig_c + radius, sig_c - radius),
-         color='black', horizontalalignment='right', verticalalignment='bottom', fontsize='12', bbox=mybox)
+         r'$\sigma_{pmax}  = %0.2f, \sigma_{pmin}  = %0.2f$'
+         %(sig_c + radius, sig_c - radius),
+         fontsize='12', bbox=mybox, color='black',
+         horizontalalignment='right', verticalalignment='bottom')
 
 
 # Show the plot
