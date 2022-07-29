@@ -48,6 +48,8 @@ print("tau_2 = %0.5f" %tau_2)
 print("tau_3 = %0.5f" %tau_3)
 print("sig_c = %0.5f" %sig_c)
 print("R = %0.5f" %radius)
+print("sig_p_max = %0.5f" %(sig_c + radius))
+print("sig_p_min = %0.5f" %(sig_c - radius))
 
 # Set a list of angle of a circle
 angle = np.linspace(0, 2 * np.pi, 150)
@@ -86,6 +88,9 @@ axes.axhline(0, color='black', lw=1)
 # Draw grid lines
 axes.grid(color="gray", alpha=.5, linestyle='--')
 
+# Set tick direction
+axes.tick_params(direction='in')
+
 # mark reading from sensor 1, 2, and 3 and center of Mohr circle
 axes.plot(sig_1, tau_1, marker="o", color="b")
 axes.plot(sig_2, tau_2, marker="o", color="b")
@@ -104,6 +109,15 @@ plt.annotate(r'$\sigma_3 = %0.1f, \tau_3 = %0.1f$' % (sig_3, tau_3),
              xy=(sig_3 + space, tau_3 + space))
 plt.annotate(r'$\sigma_c = %0.1f$' % sig_c,
              xy=(sig_c + space, space))
+
+# draw a box for the annotation
+mybox = {'facecolor': 'white', 'edgecolor': 'black'}
+
+# print RMSE in the plot
+plt.text(xmin + (xmax-xmin) * 0.95, ymin + (ymax-ymin) * 0.05,
+         r'$\sigma_{pmax}  = %0.2f, \sigma_{pmin}  = %0.2f$' %(sig_c + radius, sig_c - radius),
+         color='black', horizontalalignment='right', verticalalignment='bottom', fontsize='12', bbox=mybox)
+
 
 # Show the plot
 plt.show()
