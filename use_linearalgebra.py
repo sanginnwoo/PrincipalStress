@@ -22,7 +22,7 @@ M = np.array([[np.cos(2*alpha)-1, np.sin(2*alpha), 0, 0],
               [np.cos(2*beta)-1, 0, np.sin(2*beta), 0],
               [np.sin(2*beta), 0, -np.cos(2*beta), 1]])
 
-# Construct the RHS vector 
+# Construct the RHS vector
 U = np.array([[np.cos(2*alpha)*sig_1 - sig_2],
               [np.sin(2*alpha)*sig_1],
               [np.cos(2*beta)*sig_2 - sig_3],
@@ -120,6 +120,8 @@ plt.text(xmin + (xmax-xmin) * 0.95, ymin + (ymax-ymin) * 0.05,
          fontsize='12', bbox=mybox, color='black',
          horizontalalignment='right', verticalalignment='bottom')
 
+# save the plot
+plt.savefig("test.svg")
 
-# Show the plot
+# show the plot
 plt.show()
